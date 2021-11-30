@@ -1,0 +1,62 @@
+.rock {
+  display: flex;
+  border: 2px solid #47516d;
+  border-radius: 5px;
+  width: 48%;
+  overflow: hidden;
+  height: 200px;
+  margin-bottom: 24px;
+}
+
+.rock-image {
+  width: 200px;
+  padding: 0;
+}
+
+.rock-info {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.type {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #47516d;
+}
+
+.description {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.rock-info .row {
+  display: flex;
+}
+
+.row .weight {
+  margin-right: 12px;
+}
+
+.sell-btn {
+  background-color: #47516d;
+  color: white;
+  padding: 8px;
+  margin-top: 12px;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: 2px solid #47516d;
+}
+
+.sell-btn:hover {
+  color: #47516d;
+  background-color: white;
+  cursor: pointer;
+}

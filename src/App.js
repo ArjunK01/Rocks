@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
+import Header from "./Components/Header";
+import "./Styles/App.css";
+import UserContextProvider from "./Context/UserContext";
+import Navigation from "./Components/Navigation";
 
 function App() {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserContextProvider>
+        <Header />
+        <Navigation />
+      </UserContextProvider>
     </div>
   );
 }

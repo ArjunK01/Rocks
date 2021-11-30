@@ -1,0 +1,17 @@
+.inventory {
+  margin-top: 32px;
+}
+
+.sub {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.your-rocks {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

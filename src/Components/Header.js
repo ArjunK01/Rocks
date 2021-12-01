@@ -14,6 +14,10 @@ const Header = () => {
       </div>
       {user ? (
         <div className="nav">
+          <p style={{ fontWeight: "bold", textDecoration: "none" }}>
+            Balance: ${user.shopperInfo.balance.toFixed(2)}
+          </p>
+
           <div>
             <Link
               style={{

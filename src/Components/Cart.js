@@ -1,43 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Rock from "./Rock";
-const rocks = [
-  {
-    description: "Description",
-    weight: 12,
-    origin: "origin",
-    type: "rock_type"
-  },
-  {
-    description: "Description",
-    weight: 12,
-    origin: "origin",
-    type: "rock_type"
-  },
-  {
-    description: "Description",
-    weight: 12,
-    origin: "origin",
-    type: "rock_type"
-  },
-  {
-    description: "Description",
-    weight: 12,
-    origin: "origin",
-    type: "rock_type"
-  },
-  {
-    description: "Description",
-    weight: 12,
-    origin: "origin",
-    type: "rock_type"
-  }
-];
+import { UserContext } from "../Context/UserContext";
+
 const Cart = () => {
+  const { user, buyRocks } = useContext(UserContext);
   return (
     <div className="inventory">
       <div className="sub">Your Rock Inventory</div>
       <div className="your-rocks">
-        {rocks.map(rock => (
+        {user.cartRocks.map(rock => (
           <Rock cart={true} rock={rock} />
         ))}
       </div>
@@ -50,9 +21,26 @@ const Cart = () => {
           marginBottom: "24px"
         }}
       >
-        <div className="sell-btn" style={{ width: "200px" }}>
-          Purchase
-        </div>
+        {user.cartRocks.length ? (
+          <div
+            className="sell-btn"
+            style={{ width: "200px" }}
+            onClick={
+              user.cartRocks
+                .reduce((acc, cur) => acc + cur.weight * cur.price_per_ounce, 0)
+                .toFixed(2) > user.shopperInfo.balance
+                ? null
+                : buyRocks
+            }
+          >
+            Purchase - $
+            {user.cartRocks
+              .reduce((acc, cur) => acc + cur.weight * cur.price_per_ounce, 0)
+              .toFixed(2)}
+          </div>
+        ) : (
+          <p>No rocks in the cart</p>
+        )}
       </div>
     </div>
   );
